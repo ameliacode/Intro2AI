@@ -27,7 +27,6 @@ class CSP: #Backtracking
 
     def csp(self):
         self.dfs(0)
-
         if self.solutions:
             return self.solutions
         else:
