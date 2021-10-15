@@ -13,20 +13,21 @@ class CSP: #Backtracking
                 return False
         return True
 
-    def dfs(self,xi):
-        if xi == self.N :
+    def dfs(self, xi):
+        if xi == self.N:
             solution = []
             solution.extend(self.chessboard)
-            self.solutions.append([i+1 for i in solution])
-            return
+            self.solutions.append([i + 1 for i in solution])
+            return True
         for row_pos in range(self.N):
-            self.chessboard[xi]=row_pos # 일단 해당 위치에 queen을 배치한다.
-            if self.isLegal(xi): # promising한 자리일 경우,
-                self.dfs(xi+1) # 다음 column으로 넘어가
-                # print("Backtracking {}".format(row_pos)) # promising 하지 않는다면 재귀함수에 따라 backtracking
+            self.chessboard[xi]=row_pos
+            if self.isLegal(xi):
+                if self.dfs(xi+1):
+                    return True
 
     def csp(self):
-        self.dfs(0)
+        self.dfs(1)
+        # print(self.chessboard)
         if self.solutions:
             return self.solutions
         else:

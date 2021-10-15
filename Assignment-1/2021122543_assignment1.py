@@ -10,13 +10,21 @@ def main():
 
     with open(currentDir+"\\input.txt","r") as inputFile:
         for line in inputFile:
-            N,func = line.split(" ")
+            N, func = line.split(" ")
             # func = func.replace(" ","")
             if func.startswith("bfs"):
-                pass
-                # solution = bfs(int(N)) #list or string("no solution")
-                # print(solution)
-                #file.writelines(solution)
+                algorithm = BFS(int(N))
+                solution = algorithm.bfs()
+
+                with open(currentDir+"\\{}_bfs_output.txt".format(N),"w") as outputFile:
+                    if solution is not None:
+                        print(solution)
+                        for answer in solution:
+                            outputFile.write(str(answer)+" ")
+                    else:
+                        print("no solution")
+                        outputFile.write("no solution")
+
             elif func.startswith("csp"): # Backtracking
                 algorithm = CSP(int(N))
                 solution = algorithm.csp()
@@ -30,6 +38,7 @@ def main():
                         print("no solution")
                         outputFile.write("no solution")
                 pass
+
             elif func.startswith("hc"):
                 algorithm = HC(int(N))
                 solution = algorithm.hc(int(N))
@@ -45,7 +54,6 @@ def main():
             else:
                 pass
     
-
 if __name__=="__main__":
     main()
 

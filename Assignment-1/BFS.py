@@ -1,27 +1,38 @@
-# Success:return list(row position)
-# Fail: return "no solution"
+from queue import Queue
 
 class BFS:
     def __init__(self, N):
         self.N = int(N)
-        self.chessboard = []
+        self.chessboard = Queue() # as frontier queue
+
+    def isLegal(self, chessboard):
+        for yi_idx in range(len(chessboard)):
+            for xi_idx in range(yi_idx + 1, len(chessboard)):  # column
+                if chessboard[xi_idx] == chessboard[yi_idx]:  # 직선일 경우
+                    return False
+                if abs(chessboard[yi_idx] - chessboard[xi_idx]) == abs(yi_idx - xi_idx):  # 대각선일 경우
+                    return False
+        return True
+
+    def isGoal(self, chessboard):
+        if len(chessboard) == self.N:
+            return True
+        else:
+            return False
 
     def bfs(self):
 
-        #init graph
-        graph = dict()
-        for i in range(1,self.N+1):
-            row = list()
-            for j in range(1,self.N+1):
-                row.append(j)
-            graph[i]=row
+        for _ in range(self.N):
+           self.chessboard.put([0]) # 각 위치
 
-        visited, queue = [], []
+        while not self.chessboard.empty():
+            queue = self.chessboard.get()
 
-        queue.append(1) # root node 1로 고정
-        while queue:
-            node = queue.pop(0)
-            if node not in visited:
-                visited.append(node)
-                queue.extend(graph[node])
-        return visited
+            if self.isGoal(queue):
+                queue = [i+1 for i in queue]
+                return queue
+
+            for row_pos in range(self.N):
+                new_queue = queue + [row_pos]
+                if self.isLegal(new_queue):
+                    self.chessboard.put(new_queue)
