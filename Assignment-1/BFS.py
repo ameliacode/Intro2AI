@@ -22,8 +22,7 @@ class BFS:
 
     def bfs(self):
 
-        for _ in range(self.N):
-           self.chessboard.put([0]) # 각 위치
+        self.chessboard.put([0]) # 각 위치
 
         while not self.chessboard.empty():
             queue = self.chessboard.get()
