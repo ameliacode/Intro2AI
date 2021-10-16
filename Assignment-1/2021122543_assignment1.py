@@ -2,7 +2,7 @@ from BFS import BFS
 from CSP import CSP
 from HC import HC
 
-import os #os 써서 상대경로 만들어놓을 것
+import os
 
 def main():
     currentDir = os.path.dirname(os.path.abspath(__file__))
