@@ -12,7 +12,7 @@ def main():
         with open(currentDir+"\\input.txt","r") as inputFile:
             for line in inputFile:
                 N, func = line.split(" ")
-                
+
                 if func.startswith("bfs"): # Breadth First Searching
                     algorithm = BFS(int(N))
                     solution = algorithm.bfs()
