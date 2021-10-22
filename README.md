@@ -3,4 +3,5 @@
 ### Content
 
 #### Assignment 1
+Solving NQueens problem using BFS(Breadth First Search), CSP(Constraint Satisfaction Problem), HC(Hill Climbing)
 
