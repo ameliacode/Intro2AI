@@ -9,3 +9,5 @@ Solving NQueens problem using,
 - HC(Hill Climbing)
 
 Visit [here]() for commentaries 
+
+#### Assignment 2
