@@ -1,4 +1,4 @@
-## 인공지능개론
+## Introduction to AI
 2021-2-1st 인공지능개론 수업 과제
 ### Content
 
