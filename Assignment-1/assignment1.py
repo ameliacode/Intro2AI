@@ -57,7 +57,7 @@ def main():
     except: # error
         print("No input.txt file in current directory")
 
-
+        
 if __name__=="__main__":
     main()
 
