@@ -3,8 +3,9 @@
 ### Content
 
 #### Assignment 1
-Solving NQueens problem using 
--BFS(Breadth First Search)
--CSP(Constraint Satisfaction Problem)
--HC(Hill Climbing)
+Solving NQueens problem using, 
+- BFS(Breadth First Search)
+- CSP(Constraint Satisfaction Problem) -Backtracking
+- HC(Hill Climbing)
 
+Visit [here]() for commentaries 
