@@ -8,6 +8,6 @@ Solving NQueens problem using,
 - CSP(Constraint Satisfaction Problem) -Backtracking
 - HC(Hill Climbing)
 
-Visit [here](https://ameliacode.github.io) for docs and commentaries 
+Visit [here](https://ameliacode.github.io) for docs and detailed commentaries 
 
 #### Assignment 2
