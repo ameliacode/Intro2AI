@@ -9,6 +9,6 @@ Solving NQueens problem using,
 - HC(Hill Climbing)
 
 Visit [here](https://ameliacode.github.io) for docs and detailed commentaries  
-Docs(KOR) will be provied soon in the relevant section.
+Docs(KOR) will be provided soon in the relevant section.
 
 #### Assignment 2
