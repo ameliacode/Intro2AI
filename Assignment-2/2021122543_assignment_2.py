@@ -3,11 +3,12 @@ import os
 class Environment:
     def __init__(self):
         self.map = []
+        self.QTable = [[0 for _ in range(4)] for _ in range(25)]
         self.actions = ["up","right","left","down"]
-        self.rewards = {"S":0, "G":100, "T":1, "B":-100, "P": -1}
-        self.reward = 0
+        self.states = {"S":0, "G":100, "T":1, "B":-100, "P": 0}
+        self.gamma = 0.9
         
-    def Q(self, state, action):
+    def Q(self, state, action): #state: position index, action: self.actions
         pass
 
     def import_env(self):
@@ -17,7 +18,8 @@ class Environment:
         try:
             with open(currentDir+"\\input.txt","r") as inputFile:
                 for line in inputFile:
-                    self.map.append([self.rewards[line[i]] for i in range(5)])
+                    self.map.append([self.states[line[i]] for i in range(5)])
+
                 
         except Exception as error:
             print(error)
