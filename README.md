@@ -12,7 +12,5 @@ Visit [here](https://ameliacode.github.io) for docs and detailed commentaries
 Docs(KOR) will be provided soon in the relevant section.
 
 #### Assignment 2
-<<<<<<< HEAD
-=======
 Q Learning Adaptation
->>>>>>> 1ed69f9fff3b6bba766d2336390049b725912647
+
