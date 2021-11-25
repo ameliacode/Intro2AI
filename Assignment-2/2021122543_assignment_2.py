@@ -1,10 +1,14 @@
 import os
+<<<<<<< HEAD
 import random
+=======
+>>>>>>> 1ed69f9fff3b6bba766d2336390049b725912647
 
 class Environment:
     def __init__(self):
         self.map = []
         self.QTable = [[0 for _ in range(4)] for _ in range(25)]
+<<<<<<< HEAD
         self.actions = {"up":0,"right":1,"left":2,"down":3}
         self.states = {"S":0, "G":100, "T":1, "B":-100, "P": 0}
         self.gamma = 0.9
@@ -44,6 +48,14 @@ class Environment:
             pass
         else:
             self.QTable[state][_action] = self.map[state] + self.gamma * max(self.QTable[next_move])
+=======
+        self.actions = ["up","right","left","down"]
+        self.states = {"S":0, "G":100, "T":1, "B":-100, "P": 0}
+        self.gamma = 0.9
+        
+    def Q(self, state, action): #state: position index, action: self.actions
+        pass
+>>>>>>> 1ed69f9fff3b6bba766d2336390049b725912647
 
     def import_env(self):
         # current directory
@@ -51,6 +63,7 @@ class Environment:
         currentDir.replace("\\","\\\\")
         try:
             with open(currentDir+"\\input.txt","r") as inputFile:
+<<<<<<< HEAD
                 num_line = 0
                 for line in inputFile:
                     for i in range(5):
@@ -59,6 +72,12 @@ class Environment:
                             self.start = num_line*5+i
                         if line[i]=="G":
                             self.goal = num_line*5+i
+=======
+                for line in inputFile:
+                    self.map.append([self.states[line[i]] for i in range(5)])
+
+                
+>>>>>>> 1ed69f9fff3b6bba766d2336390049b725912647
         except Exception as error:
             print(error)
 
@@ -66,6 +85,7 @@ class Environment:
 def main():
 
     env = Environment()
+<<<<<<< HEAD
     env.import_env()
     print(env.map)
 
@@ -79,6 +99,11 @@ def main():
                 break
     for i in range(25):
         print(env.QTable[i])
+=======
+    
+    env.import_env()
+    print(env.map)
+>>>>>>> 1ed69f9fff3b6bba766d2336390049b725912647
     
 
 if __name__=="__main__":
