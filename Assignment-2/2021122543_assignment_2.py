@@ -39,11 +39,11 @@ class Environment:
     def Q(self, state, action):  # state: position index, action: self.actions
         next_move = self.move_agent(action=action, current_pos=state)
         _action = self.actions[action]
-        self.current_state = next_move
         if not next_move:
             pass
         else:
-            self.QTable[state][_action] = self.rewards[state] + self.gamma * max(self.QTable[next_move])
+            self.QTable[state][_action] = self.rewards[next_move] + self.gamma * max(self.QTable[next_move])
+            self.current_state = next_move
 
     def import_env(self):
         # current directory
@@ -51,10 +51,9 @@ class Environment:
         currentDir.replace("\\","\\\\")
         try:
             #window
-            #with open(currentDir+"\\input.txt","r") as inputFile:
-
+            with open(currentDir+"\\input.txt","r") as inputFile:
             #ubuntu
-            with open(currentDir+"/input.txt","r") as inputFile:
+            #with open(currentDir+"/input.txt","r") as inputFile:
                 num_line = 0
                 for line in inputFile:
                     for i in range(5):
@@ -63,6 +62,7 @@ class Environment:
                             self.start = num_line*5+i
                         if line[i]=="G":
                             self.goal = num_line*5+i
+                    num_line += 1
 
         except Exception as error:
             print(error)
@@ -73,7 +73,8 @@ def main():
     env = Environment()
     env.import_env()
 
-    for ith_episode in range(10):
+    # QLearning via QTable
+    for ith_episode in range(100):
         pos = env.start
         while True:
             _action = random.choice(list(env.actions.keys()))
@@ -82,9 +83,27 @@ def main():
             if pos == env.goal:
                 break
 
-    for i in range(25):
-        print(i, env.QTable[i])
+    # 출발 지점에서의 max q 값
+    start_qvalue = max(env.QTable[env.start])
 
+    # Connecting Path
+    path = [] # 출발 지점에서 도착 지점까지의 최적의 경로
+    pos = env.start
+    while True:
+        path.append(pos)
+        if pos == env.goal:
+            break
+        next_max_qvalue = env.QTable[pos].index(max(env.QTable[pos]))
+        next_action = list(env.actions.keys())[list(env.actions.values()).index(next_max_qvalue)]
+        pos = env.move_agent(action=next_action, current_pos=pos)
+
+    # output
+    currentDir = os.path.dirname(os.path.abspath(__file__))
+    currentDir.replace("\\", "\\\\")
+    with open(currentDir+"\\output.txt", "w") as outputFile:
+        for index in path:
+            outputFile.write(str(index)+" ")
+        outputFile.write("\n"+str(start_qvalue))
 
 if __name__=="__main__":
     main()
