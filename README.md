@@ -8,9 +8,8 @@ Solving NQueens problem using,
 - CSP(Constraint Satisfaction Problem) -Backtracking
 - HC(Hill Climbing)
 
-Visit [here](https://ameliacode.github.io) for docs and detailed commentaries  
-Docs(KOR) will be provided soon in the relevant section.
+(KOR) Visit [here](https://ameliacode.github.io) for detailed commentaries  
 
 #### Assignment 2
-Q Learning Adaptation
+Q Learning Adaptation without using external libraries
 
