@@ -1,5 +1,7 @@
 ## Introduction to AI
-This repository is for **Introduction to AI ** lecture related material and assignments 
+This repository is for **Introduction to AI** lecture related material and assignments 
+
+---
 
 ### Content
 #### Assignment 1
