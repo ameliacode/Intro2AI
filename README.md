@@ -1,7 +1,7 @@
 ## Introduction to AI
-2021-2-1st 인공지능개론 수업 과제
-### Content
+This repository is for **Introduction to AI ** lecture related material and assignments 
 
+### Content
 #### Assignment 1
 Solving NQueens problem using, 
 - BFS(Breadth First Search)
