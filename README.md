@@ -10,8 +10,6 @@ Solving NQueens problem using,
 - CSP(Constraint Satisfaction Problem) -Backtracking
 - HC(Hill Climbing)
 
-(KOR) Visit [here](https://ameliacode-github-io.vercel.app/) for detailed commentaries  
-
 #### Assignment 2
 Q Learning Adaptation without using external libraries
 
